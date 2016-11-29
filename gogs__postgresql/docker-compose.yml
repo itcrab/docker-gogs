@@ -1,0 +1,25 @@
+version: '2'
+services:
+  postgres:
+    image: postgres:9.5.5-alpine
+    container_name: gogspostresql_postgres
+    restart: always
+    #volumes:
+    #  - ./volumes/postgres:/var/lib/postgresql/data  # https://github.com/docker/docker/issues/25908
+    environment:
+      - POSTGRES_USER=gogs
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=gogs
+  gogs:
+    image: gogs/gogs:0.9.97
+    container_name: gogspostresql_gogs
+    domainname: gogs.local
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./volumes/gogs:/data
+    depends_on:
+      - postgres
+    external_links:
+      - gogspostresql_postgres:postgres

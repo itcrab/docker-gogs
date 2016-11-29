@@ -7,8 +7,10 @@ https://gogs.io/
 
 ## Databases
 * `[gogs__mysql]`: Gogs with MySQL
+* `[gogs__gogs__postgresql]`: Gogs with PostgreSQL
 
 ## Defaults
+* `host`: {mysql|postgres}
 * `db_name`: gogs
 * `db_user`: gogs
 * `db_pass`: password
@@ -19,3 +21,8 @@ https://gogs.io/
 * `docker-compose.yml`: configurations for docker containers;
 * `dump_db.bat`: dump main database;
 * `run.bat`: containers up (run first).
+
+## Using
+* add `gogs.local` to your `hosts`
+* in browser `http://gogs.local:3000`
+* enjoy!
