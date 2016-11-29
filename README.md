@@ -7,7 +7,7 @@ https://gogs.io/
 
 ## Databases
 * `[gogs__mysql]`: Gogs with MySQL
-* `[gogs__gogs__postgresql]`: Gogs with PostgreSQL
+* `[gogs__postgresql]`: Gogs with PostgreSQL
 
 ## Defaults
 * `host`: {mysql|postgres}
