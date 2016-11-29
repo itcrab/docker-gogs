@@ -6,11 +6,12 @@ Something like the GitHub/Bitbucket/GitLab/etc in local server (with GIT in cont
 https://gogs.io/
 
 ## Databases
+* `[gogs__mariadb]`: Gogs with MariaDB
 * `[gogs__mysql]`: Gogs with MySQL
 * `[gogs__postgresql]`: Gogs with PostgreSQL
 
 ## Defaults
-* `host`: {mysql|postgres}
+* `host`: {mariadb|mysql|postgres}
 * `db_name`: gogs
 * `db_user`: gogs
 * `db_pass`: password

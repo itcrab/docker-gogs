@@ -1,0 +1,27 @@
+version: '2'
+services:
+  mariadb:
+    image: mariadb:10.0.28
+    container_name: gogsmariadb_mariadb
+    restart: always
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    #volumes:
+    #  - ./volumes/mariadb:/var/lib/mysql # https://github.com/docker-library/mariadb/issues/49
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_USER=gogs
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=gogs
+  gogs:
+    image: gogs/gogs:0.9.97
+    container_name: gogsmariadb_gogs
+    domainname: gogs.local
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./volumes/gogs:/data
+    depends_on:
+      - mariadb
+    external_links:
+      - gogsmariadb_mariadb:mariadb
