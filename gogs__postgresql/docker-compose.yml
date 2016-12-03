@@ -10,6 +10,7 @@ services:
       - POSTGRES_USER=gogs
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=gogs
+      - "TZ=Asia/Yekaterinburg"
   gogs:
     image: gogs/gogs:0.9.97
     container_name: gogspostresql_gogs
@@ -23,3 +24,5 @@ services:
       - postgres
     external_links:
       - gogspostresql_postgres:postgres
+    environment:
+      - "TZ=Asia/Yekaterinburg"
